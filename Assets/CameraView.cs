@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraView : MonoBehaviour
 {
-    public Camera player1;
-    public Camera player2;
-    public Camera player3;
-    public Camera player4;
+    public Camera Player1;
+    public Camera Player2;
+    public Camera Player3;
+    public Camera Player4;
 
     // Start is called before the first frame update
     void Start()
     {
-        player1.enabled = true;
+        SceneManager.LoadScene("StartMenu");
+        ChangePlayer(Player1);
     }
 
     // Update is called once per frame
@@ -20,27 +22,28 @@ public class CameraView : MonoBehaviour
     {
         if(Input.GetKeyDown("1"))
         {
-            changePlayer(player1);
+            ChangePlayer(Player1);
         }
         else if(Input.GetKeyDown("2"))
         {
-            changePlayer(player2);
+            ChangePlayer(Player2);
         }
         else if(Input.GetKeyDown("3"))
         {
-            changePlayer(player3);
+            ChangePlayer(Player3);
         }
         else if(Input.GetKeyDown("4"))
         {
-            changePlayer(player4);
+            ChangePlayer(Player4);
         }
     }
 
     // disable all active Cameras and enable the specified Camera
-    private void changePlayer(Camera player)
+    private void ChangePlayer(Camera player)
     {
-        foreach(Camera c in Camera.allCameras)
+        foreach(var c in Camera.allCameras)
             c.enabled = false;
         player.enabled = true;
     }
 }
+
