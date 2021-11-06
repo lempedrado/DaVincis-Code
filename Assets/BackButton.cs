@@ -12,15 +12,13 @@ public class BackButton : MonoBehaviour
         Back.onClick.AddListener(StartMenu);
     }
 
-    public void StartMenu()
-    {
-        Debug.Log("try to change scene");
-        SceneManager.LoadScene("StartMenu");
-        Debug.Log("after scene change");
-    }
-
     void Update()
     {
         
+    }
+
+    void StartMenu()
+    {
+        SceneManager.LoadScene("StartMenu");
     }
 }
